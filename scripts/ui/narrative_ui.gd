@@ -39,6 +39,11 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func present(data: NarrativeData) -> void:
+	if data == null or data.lines.is_empty():
+		# 内容缺失(常见于打包漏资源)——直接跳过,避免卡在空对话框
+		visible = false
+		finished.emit()
+		return
 	_lines = data.lines
 	_speakers = data.speakers
 	_index = 0
