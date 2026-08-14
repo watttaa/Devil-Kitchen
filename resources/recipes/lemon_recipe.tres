@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/recipe_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "lemon_recipe"
+display_name = "柠檬腌料"
+description = "移速 +10%(酸味)"
+move_speed_mult = 1.1
+synergy_tags = Array[String](["sour"])

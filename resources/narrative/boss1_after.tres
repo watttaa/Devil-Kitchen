@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "boss1_after"
+trigger = "boss1_after"
+title = "第一层 · 通过"
+lines = PackedStringArray("盘子塔哗啦散了一地,摔得比刚才还脏。
+角落的清洁阿姨看了一眼,当场提交了离职申请。", "碎瓷片里滚出一张油乎乎的便利贴,是那熟悉得不能再熟悉的字:
+「臭小子要真看到这个——二楼甜点师三年没合眼,别碰她的舒芙蕾。
+你那份加班费,我先替你记着。千万别上来。——默」", "「『千万别上来』?写得越客气,这事就越不对劲。
+师父,你越拦,我越要上。」")
+speakers = PackedStringArray("narrator", "narrator", "ache")

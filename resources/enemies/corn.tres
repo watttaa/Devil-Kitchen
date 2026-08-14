@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/corn.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "corn"
+display_name = "玉米"
+behavior = 2
+max_health = 36.0
+move_speed = 130.0
+sense_range = 540.0
+attack_range = 280.0
+attack_interval = 1.5
+contact_damage = 1.0
+color = Color(0.95, 0.85, 0.2, 1)
+body_radius = 22.0
+texture = ExtResource("2")
+projectile_speed = 500.0
+projectile_damage = 1.0
+tips_drop = 4
+ammo_drop_chance = 0.35
+ammo_amount = 6

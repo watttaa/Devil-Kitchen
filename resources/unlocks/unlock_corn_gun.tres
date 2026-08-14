@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UnlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unlock_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "unlock_corn_gun"
+target_content = "corn_gun"
+condition = 3
+threshold = 40
+enemy_id = "corn"
+display_name = "玉米机关枪"
+hint = "击杀 40 个玉米怪"

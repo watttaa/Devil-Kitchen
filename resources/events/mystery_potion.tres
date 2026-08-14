@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/event_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "mystery_potion"
+title = "神秘药水"
+description = "桌上摆着一瓶冒泡的紫液。魔鬼餐厅的料理长说:喝了或许能活,或许当场暴毙。"
+options = [{
+"amount": 2,
+"effect": 1,
+"label": "喝下药水(回血2)"
+}, {
+"amount": 1,
+"effect": 2,
+"label": "砸碎瓶子(扣血1,出气)"
+}, {
+"amount": 0,
+"effect": 0,
+"label": "转身离开"
+}]

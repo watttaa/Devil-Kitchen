@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "floor2_enter"
+trigger = "floor2_enter"
+title = "第二层 · 烈焰烘焙房"
+lines = PackedStringArray("二楼甜得发齁,烤箱轰鸣,焦味里飘着一股怎么也散不掉的……班味。", "操作台摊着本食谱,最后一页是师父的字:
+「舒芙蕾第 2999 次失败。它塌了,我也塌了。
+……话说回来,我的工资条到底扣哪去了?」", "「都自身难保了还惦记工资条……
+行吧师父,这份抠门,确实随我。」")
+speakers = PackedStringArray("narrator", "narrator", "ache")

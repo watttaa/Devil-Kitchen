@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/beet.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "beet"
+display_name = "甜菜"
+behavior = 0
+max_health = 50.0
+move_speed = 100.0
+sense_range = 400.0
+contact_damage = 2.0
+color = Color(0.6, 0.15, 0.3, 1)
+body_radius = 24.0
+texture = ExtResource("2")
+tips_drop = 5
+ammo_drop_chance = 0.3
+ammo_amount = 6

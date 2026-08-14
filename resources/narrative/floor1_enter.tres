@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "floor1_enter"
+trigger = "floor1_enter"
+title = "第一层 · 后厨地狱"
+lines = PackedStringArray("午夜十二点,「魔鬼餐厅」的打卡机自己响了一声。
+冰箱门「咣」地弹开,寒气里滚出一颗红着眼的番茄。", "「加班?没门!三倍工资都没门!
+今晚——轮到你被切了!」", "「讲点道理啊各位,我就是个来找师父的临时工……
+顺带,把他欠我那三个月工资要回来。」", "阿澈掂了掂手里那把旧菜刀,刀背都卷了:
+「师父啊师父,你到底把自己弄哪去了。」")
+speakers = PackedStringArray("narrator", "tomato", "ache", "ache")

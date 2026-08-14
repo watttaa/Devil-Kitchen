@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EventData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/event_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "spice_offer"
+title = "香料商的提议"
+description = "一位蒙面香料商:给你一笔窝囊费,或给你一份临时战意加成。"
+options = [{
+"amount": 12,
+"effect": 3,
+"label": "收下窝囊费$12"
+}, {
+"amount": 30,
+"effect": 6,
+"label": "战意+30%(20秒)"
+}, {
+"amount": 0,
+"effect": 0,
+"label": "不要"
+}]

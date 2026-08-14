@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/rooms/room.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/rooms/kitchen_floor.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/rooms/wall_decor.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/rooms/door.gd" id="4"]
+
+[sub_resource type="RectangleShape2D" id="hwall"]
+size = Vector2(1140, 40)
+
+[sub_resource type="RectangleShape2D" id="vseg"]
+size = Vector2(40, 250)
+
+[sub_resource type="RectangleShape2D" id="door"]
+size = Vector2(40, 160)
+
+[sub_resource type="RectangleShape2D" id="area"]
+size = Vector2(1040, 600)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Floor" type="Node2D" parent="."]
+script = ExtResource("2")
+
+[node name="WallTop" type="StaticBody2D" parent="."]
+position = Vector2(0, -330)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Vis" type="Polygon2D" parent="WallTop"]
+color = Color(0.33, 0.3, 0.27, 1)
+polygon = PackedVector2Array(-570, -20, 570, -20, 570, 20, -570, 20)
+
+[node name="Col" type="CollisionShape2D" parent="WallTop"]
+shape = SubResource("hwall")
+
+[node name="WallBottom" type="StaticBody2D" parent="."]
+position = Vector2(0, 330)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Vis" type="Polygon2D" parent="WallBottom"]
+color = Color(0.33, 0.3, 0.27, 1)
+polygon = PackedVector2Array(-570, -20, 570, -20, 570, 20, -570, 20)
+
+[node name="Col" type="CollisionShape2D" parent="WallBottom"]
+shape = SubResource("hwall")
+
+[node name="WallLU" type="StaticBody2D" parent="."]
+position = Vector2(-550, -205)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Vis" type="Polygon2D" parent="WallLU"]
+color = Color(0.33, 0.3, 0.27, 1)
+polygon = PackedVector2Array(-20, -125, 20, -125, 20, 125, -20, 125)
+
+[node name="Col" type="CollisionShape2D" parent="WallLU"]
+shape = SubResource("vseg")
+
+[node name="WallLL" type="StaticBody2D" parent="."]
+position = Vector2(-550, 205)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Vis" type="Polygon2D" parent="WallLL"]
+color = Color(0.33, 0.3, 0.27, 1)
+polygon = PackedVector2Array(-20, -125, 20, -125, 20, 125, -20, 125)
+
+[node name="Col" type="CollisionShape2D" parent="WallLL"]
+shape = SubResource("vseg")
+
+[node name="WallRU" type="StaticBody2D" parent="."]
+position = Vector2(550, -205)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Vis" type="Polygon2D" parent="WallRU"]
+color = Color(0.33, 0.3, 0.27, 1)
+polygon = PackedVector2Array(-20, -125, 20, -125, 20, 125, -20, 125)
+
+[node name="Col" type="CollisionShape2D" parent="WallRU"]
+shape = SubResource("vseg")
+
+[node name="WallRL" type="StaticBody2D" parent="."]
+position = Vector2(550, 205)
+collision_layer = 1
+collision_mask = 0
+
+[node name="Vis" type="Polygon2D" parent="WallRL"]
+color = Color(0.33, 0.3, 0.27, 1)
+polygon = PackedVector2Array(-20, -125, 20, -125, 20, 125, -20, 125)
+
+[node name="Col" type="CollisionShape2D" parent="WallRL"]
+shape = SubResource("vseg")
+
+[node name="DoorLeft" type="StaticBody2D" parent="."]
+position = Vector2(-550, 0)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("4")
+
+[node name="Vis" type="Polygon2D" parent="DoorLeft"]
+color = Color(0.7, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-20, -80, 20, -80, 20, 80, -20, 80)
+
+[node name="Col" type="CollisionShape2D" parent="DoorLeft"]
+shape = SubResource("door")
+
+[node name="DoorRight" type="StaticBody2D" parent="."]
+position = Vector2(550, 0)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("4")
+
+[node name="Vis" type="Polygon2D" parent="DoorRight"]
+color = Color(0.7, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-20, -80, 20, -80, 20, 80, -20, 80)
+
+[node name="Col" type="CollisionShape2D" parent="DoorRight"]
+shape = SubResource("door")
+
+[node name="WallDecor" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("3")
+
+[node name="RoomArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+[node name="Col" type="CollisionShape2D" parent="RoomArea"]
+shape = SubResource("area")
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="S1" type="Marker2D" parent="Spawns"]
+position = Vector2(-300, -150)
+
+[node name="S2" type="Marker2D" parent="Spawns"]
+position = Vector2(300, -150)
+
+[node name="S3" type="Marker2D" parent="Spawns"]
+position = Vector2(-300, 150)
+
+[node name="S4" type="Marker2D" parent="Spawns"]
+position = Vector2(300, 150)
+
+[node name="S5" type="Marker2D" parent="Spawns"]
+position = Vector2(0, -200)
+
+[node name="ContentAnchor" type="Marker2D" parent="."]

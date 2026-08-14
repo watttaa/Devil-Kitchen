@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/codex.gd" id="1"]
+
+[node name="Codex" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.08, 0.07, 0.1, 0.9)
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -240.0
+offset_right = 280.0
+offset_bottom = 240.0
+
+[node name="Title" type="Label" parent="Panel"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 544.0
+offset_bottom = 40.0
+horizontal_alignment = 1
+text = "解锁图鉴"
+
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 544.0
+offset_bottom = 400.0
+
+[node name="List" type="VBoxContainer" parent="Panel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Stats" type="Label" parent="Panel"]
+offset_left = 16.0
+offset_top = 410.0
+offset_right = 544.0
+offset_bottom = 440.0
+horizontal_alignment = 1
+text = ""
+
+[node name="Close" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 448.0
+offset_right = 60.0
+offset_bottom = 480.0
+text = "关闭"

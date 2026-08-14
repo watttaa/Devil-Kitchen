@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unlock_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "unlock_cleaver_heavy"
+target_content = "cleaver_heavy"
+condition = 2
+threshold = 2
+display_name = "剁骨刀"
+hint = "到达第 2 层"

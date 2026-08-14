@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SeasoningData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/seasoning_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "honey_glue"
+display_name = "蜂蜜胶"
+description = "4 秒内减速周围敌人"
+effect = 2
+magnitude = 0.5
+duration = 4.0

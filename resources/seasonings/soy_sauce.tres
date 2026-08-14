@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SeasoningData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/seasoning_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "soy_sauce"
+display_name = "酱油"
+description = "回 2 半心"
+effect = 0
+magnitude = 2.0
+duration = 0.0

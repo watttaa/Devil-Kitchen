@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/carrot.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "carrot"
+display_name = "胡萝卜"
+behavior = 0
+max_health = 28.0
+move_speed = 180.0
+sense_range = 500.0
+contact_damage = 1.0
+color = Color(0.95, 0.5, 0.15, 1)
+body_radius = 18.0
+texture = ExtResource("2")
+tips_drop = 3
+ammo_drop_chance = 0.2
+ammo_amount = 5

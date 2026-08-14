@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/recipe_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "steak"
+display_name = "厚切牛排"
+description = "攻击力 +12%(饱腹)"
+damage_mult = 1.12
+synergy_tags = Array[String](["hearty"])

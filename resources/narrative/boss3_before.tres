@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "boss3_before"
+trigger = "boss3_before"
+title = "Boss · 地狱大厨"
+lines = PackedStringArray("宴厅深处,一个顶着一米高厨帽的黑影懒洋洋转过身。", "「哟,又来送菜的。可知本大厨乃餐饮界巅峰、
+黑暗料理之神、宇宙无敌美食终极形态——」", "……它瞟见你手里那把卷了刃的旧刀,台词「咔」地卡住:
+「那把刀……阿澈?!你小子不在家写作业,跑这儿来干嘛!」", "一张『卖身契』从天而降糊了它一脸,广播冷冷催着,它硬把菜勺举起来:
+「快跑啊臭小子!这班我是真下不了——
+违约金八十万,我拿命都赔不起啊!」")
+speakers = PackedStringArray("narrator", "chef", "chef", "chef")

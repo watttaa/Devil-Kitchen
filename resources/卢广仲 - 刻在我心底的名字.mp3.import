@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj7c0xaf4ocw5"
+path="res://.godot/imported/卢广仲 - 刻在我心底的名字.mp3-08b78fe1411c8b9b46d3b7885e1bd4c1.mp3str"
+
+[deps]
+
+source_file="res://resources/卢广仲 - 刻在我心底的名字.mp3"
+dest_files=["res://.godot/imported/卢广仲 - 刻在我心底的名字.mp3-08b78fe1411c8b9b46d3b7885e1bd4c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

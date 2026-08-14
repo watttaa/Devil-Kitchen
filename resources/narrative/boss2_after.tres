@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "boss2_after"
+trigger = "boss2_after"
+title = "第二层 · 通过"
+lines = PackedStringArray("甜点师瘫进面粉堆,喷火枪灭了,长舒一口气:
+「终于……能歇会儿了。调休都攒够三年啦。」", "她朝顶楼努努嘴:
+「那老头就在上面。他现在的样子……你自己上去看吧。
+还有——别信广播里那个声音,签了它,就再没下班这回事了。」", "阿澈握紧那把旧刀,踏上最后一段楼梯,心里莫名发慌。")
+speakers = PackedStringArray("dessert", "dessert", "narrator")

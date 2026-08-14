@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SeasoningData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/seasoning_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "hot_sauce"
+display_name = "辣酱"
+description = "6 秒内攻击力 +50%"
+effect = 1
+magnitude = 1.5
+duration = 6.0

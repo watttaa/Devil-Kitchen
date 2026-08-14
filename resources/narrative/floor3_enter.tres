@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "floor3_enter"
+trigger = "floor3_enter"
+title = "第三层 · 魔鬼宴厅"
+lines = PackedStringArray("顶楼那扇门金光闪闪,土豪得辣眼睛。
+招牌写着:「招牌菜 · 地狱大厨 亲自坐镇」。
+下面小字:「概不退款,概不辞职,概不接受差评,加班无上限。」", "头顶广播「滋啦」一响,一个又油又和气的声音笑了:
+「欢迎光临魔鬼餐厅。本店只有一条规矩——
+进得来,出不去。签了字的,都懂的。」", "阿澈一脚踹开门:
+「老板!讨薪的!
+我师父、他欠我那盘蛋炒饭、三个月加班费——一样,都不能少!」")
+speakers = PackedStringArray("narrator", "narrator", "ache")

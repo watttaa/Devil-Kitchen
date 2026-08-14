@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "boss2_before"
+trigger = "boss2_before"
+title = "Boss · 走火甜点师"
+lines = PackedStringArray("面粉云里转出一个人,厨帽顶开了花,黑眼圈垂到下巴。", "「我的第三千号作品,就拿你来点缀吧。
+别动,笑一个——工伤,概不负责哦。」", "她瞄到你手里那把刀,手一抖:
+「那把刀……那老头啊,升职了。升到顶楼,再没下来——
+工资嘛,也没再领过一分。」")
+speakers = PackedStringArray("narrator", "dessert", "dessert")

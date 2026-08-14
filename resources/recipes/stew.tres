@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/recipe_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "stew"
+display_name = "炖肉料理"
+description = "每清一房回 1 半心(饱腹)"
+heal_on_room_clear = 1
+synergy_tags = Array[String](["hearty"])

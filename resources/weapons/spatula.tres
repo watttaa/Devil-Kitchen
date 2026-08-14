@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/cooking-spatula.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "spatula"
+display_name = "锅铲"
+type = 0
+damage = 32.0
+attack_interval = 0.4
+color = Color(0.6, 0.6, 0.65, 1)
+texture = ExtResource("2")
+melee_range = 64.0
+melee_radius = 40.0
+melee_active_time = 0.13

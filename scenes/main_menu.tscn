@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1"]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.08, 0.12, 1)
+
+[node name="Panel" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -160.0
+offset_right = 280.0
+offset_bottom = 160.0
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="Panel"]
+horizontal_alignment = 1
+text = "魔鬼餐厅"
+
+[node name="Story" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(560, 0)
+horizontal_alignment = 1
+autowrap_mode = 3
+text = "「魔鬼餐厅」,全城差评第一,却夜夜爆满。
+因为没人能活着走出来打差评。
+传说,谁能做出一道让老板『地狱大厨』落泪的菜,就能许一个愿。
+你是见习厨师{name}。师傅上个月说『下楼倒个垃圾』,再没回来,
+只留下一把旧菜刀,和一句欠你的:三个月工资,外加一盘他亲手炒的蛋炒饭。
+午夜十二点,食材集体觉醒造反——
+抄起师傅的刀,杀穿三层,把人,给我带回家!"
+
+[node name="Sub" type="Label" parent="Panel"]
+horizontal_alignment = 1
+text = "点右上角齿轮查看操作说明与设置"
+
+[node name="Start" type="Button" parent="Panel"]
+text = "开始游戏"
+
+[node name="Customize" type="Button" parent="Panel"]
+text = "我的厨师"
+
+[node name="Greeting" type="Label" parent="Panel"]
+horizontal_alignment = 1
+text = "厨师 阿澈,准备好开工了吗?"
+
+[node name="Codex" type="Button" parent="Panel"]
+text = "厨具图鉴"
+
+[node name="Quit" type="Button" parent="Panel"]
+text = "退出"
+
+[node name="ChefStage" type="Node2D" parent="."]
+[node name="Pedestal" type="Node2D" parent="ChefStage"]
+position = Vector2(950, 380)
+scale = Vector2(4, 4)
+
+[node name="SettingsBtn" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 60.0
+text = "⚙"

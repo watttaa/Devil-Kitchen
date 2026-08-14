@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "boss1_before"
+trigger = "boss1_before"
+title = "Boss · 洗碗池怪塔"
+lines = PackedStringArray("后厨的门「哐」一声焊死了。
+焊它的还是它自己——手滑按了『锁定加班』键。", "一摞堆到天花板的脏盘子晃晃悠悠立起,油汤直往下滴。
+三个月没人洗,它悟了道,也悟出了脾气。", "「刷我……不对,先把你刷了!
+洗不完的,永远都洗不完的啊——!」")
+speakers = PackedStringArray("narrator", "narrator", "plate")

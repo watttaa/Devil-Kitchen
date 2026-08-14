@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/paprika.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "chili_elite"
+display_name = "精英·烈焰辣椒"
+behavior = 2
+max_health = 90.0
+move_speed = 160.0
+sense_range = 600.0
+attack_range = 300.0
+attack_interval = 1.1
+contact_damage = 2.0
+color = Color(1, 0.4, 0.1, 1)
+body_radius = 26.0
+texture = ExtResource("2")
+projectile_speed = 560.0
+projectile_damage = 2.0
+tips_drop = 10
+ammo_drop_chance = 0.6
+ammo_amount = 12

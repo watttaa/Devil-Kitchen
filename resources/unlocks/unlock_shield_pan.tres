@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/unlock_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "unlock_shield_pan"
+target_content = "shield_pan"
+condition = 1
+threshold = 1
+display_name = "锅盖盾"
+hint = "通关 1 次"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NarrativeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/narrative_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "boss3_after"
+trigger = "boss3_after"
+title = "顶楼 · 摊牌"
+lines = PackedStringArray("师父的菜勺当啷落地,一米高的厨帽「噗」地瘪了下去。
+他喘着粗气,眼神一点一点,变回你认得的那个人。", "「……阿澈。都三个月了啊。
+这契,是我替全店的娃们扛下的。我留在这儿,他们才走得掉。
+可我这把老骨头,是真出不去了。」", "「扛债也不吱一声?那你欠我那盘蛋炒饭,打算赖到什么时候?」
+阿澈没有抡刀——他转身,架起锅,点了火。", "头顶广播「啪」地炸响:「你敢坏我规矩——!!」
+可油香,已经一寸一寸,漫满了整座魔鬼宴厅。")
+speakers = PackedStringArray("narrator", "chef", "ache", "narrator")

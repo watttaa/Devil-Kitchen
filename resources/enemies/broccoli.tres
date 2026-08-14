@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/broccoli.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "broccoli"
+display_name = "西兰花"
+behavior = 1
+max_health = 60.0
+move_speed = 0.0
+sense_range = 360.0
+attack_interval = 2.4
+contact_damage = 1.0
+color = Color(0.3, 0.7, 0.35, 1)
+body_radius = 26.0
+texture = ExtResource("2")
+projectile_speed = 320.0
+projectile_damage = 1.0
+tips_drop = 5
+ammo_drop_chance = 0.4
+ammo_amount = 8

@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# 导出产物 / 签名密钥(勿上传)
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# 版权音频(勿上传:卢广仲曲目为受版权保护内容)
+resources/*.mp3

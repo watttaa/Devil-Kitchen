@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://kenney_food-kit/Previews/pepper-mill.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "pepper"
+display_name = "胡椒磨"
+type = 1
+damage = 8.0
+attack_interval = 0.28
+color = Color(0.5, 0.3, 0.2, 1)
+texture = ExtResource("2")
+magazine_size = 24
+projectile_speed = 820.0
+projectiles_per_shot = 4
+spread_degrees = 28.0
+projectile_color = Color(0.35, 0.22, 0.12, 1)

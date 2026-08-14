@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/recipe_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "chocolate"
+display_name = "黑巧涂层"
+description = "攻击力 +8%(甜味)"
+damage_mult = 1.08
+synergy_tags = Array[String](["sweet"])
