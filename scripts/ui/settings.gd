@@ -4,20 +4,20 @@ extends Control
 
 const OP_TEXT := "WASD移动 / 左键远程 / 右键近战 / 空格冲刺 / E调料 / F互动"
 
-@onready var volume_slider: HSlider = $Panel/Vol/Slider
-@onready var volume_label: Label = $Panel/Vol/Value
-@onready var keys_box: VBoxContainer = $Panel/Keys
-@onready var code_input: LineEdit = $Panel/Code/Input
-@onready var code_submit: Button = $Panel/Code/Submit
-@onready var summon_btn: Button = $Panel/Summon
+@onready var volume_slider: HSlider = $Scroll/Panel/Vol/Slider
+@onready var volume_label: Label = $Scroll/Panel/Vol/Value
+@onready var keys_box: VBoxContainer = $Scroll/Panel/Keys
+@onready var code_input: LineEdit = $Scroll/Panel/Code/Input
+@onready var code_submit: Button = $Scroll/Panel/Code/Submit
+@onready var summon_btn: Button = $Scroll/Panel/Summon
 
 var _listening_action: String = ""
 var _listening_btn: Button = null
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	$Panel/Ops.text = OP_TEXT
-	$Panel/Close.pressed.connect(_close)
+	$Scroll/Panel/Ops.text = OP_TEXT
+	$Scroll/Panel/Close.pressed.connect(_close)
 	volume_slider.min_value = 0.0
 	volume_slider.max_value = 1.0
 	volume_slider.step = 0.05

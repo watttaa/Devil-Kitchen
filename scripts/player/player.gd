@@ -105,19 +105,23 @@ func _physics_process(delta: float) -> void:
 	_process_melee_hits()
 
 func _process(delta: float) -> void:
-	var aim := get_global_mouse_position() - global_position
-	if aim.length() > 1.0:
-		aim_indicator.rotation = aim.angle()
+	var aim := get_aim_direction()
+	if aim.length() > 0.01:
 		var ang := aim.angle()
+		aim_indicator.rotation = ang
 		var tex_off := 0.0
 		if melee_weapon:
 			tex_off = deg_to_rad(melee_weapon.texture_angle_offset)
-		# 攻击端指向鼠标:tex_off 把贴图默认朝向对齐到 +x,再整体转 ang
+		# 刀尖指向瞄准方向:tex_off 把贴图默认朝向对齐到 +x,再整体转 ang
+		# flip_v 让刀刃恒朝屏幕下方(刀背朝上):瞄准偏右用正常,偏左镜像
+		weapon_sprite.flip_v = false
+		weapon_sprite.flip_h = false
+		if aim.x < 0.0:
+			# 指向左半边:水平镜像,避免刀倒挂,刃仍朝下
+			weapon_sprite.flip_v = true
 		weapon_sprite.rotation = ang + _swing + tex_off
 		# 沿攻击方向外推,让武器伸到手的前方
 		weapon_sprite.position = Vector2.RIGHT.rotated(ang) * 26.0
-		# 指向左半边时上下翻,让刀刃始终朝下(顺手),避免倒挂
-		weapon_sprite.flip_v = absf(ang) > PI * 0.5
 	if _shake > 0.0:
 		camera.offset = Vector2(randf_range(-_shake, _shake), randf_range(-_shake, _shake))
 		_shake = max(_shake - 45.0 * delta, 0.0)
