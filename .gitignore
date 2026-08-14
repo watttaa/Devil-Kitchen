@@ -5,6 +5,7 @@
 # 导出产物 / 签名密钥(勿上传)
 *.apk
 *.aab
+*.pck
 *.keystore
 *.jks
 
