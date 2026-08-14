@@ -17,8 +17,8 @@ var _swap_pressed: bool = false
 var _seasoning_pressed: bool = false
 
 func _ready() -> void:
-	# 触屏可用即认为是移动端(编辑器/桌面也能被鼠标模拟触摸,故用 OS 判断)
-	enabled = DisplayServer.is_touchscreen_available() and OS.get_name() in ["Android", "iOS"]
+	# 移动端一律启用触屏(不依赖 is_touchscreen_available,部分安卓返回 false)
+	enabled = OS.get_name() in ["Android", "iOS"]
 
 func set_move(v: Vector2) -> void:
 	move_vec = v
