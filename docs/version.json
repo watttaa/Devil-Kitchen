@@ -1,5 +1,1 @@
-{
-  "patch_version": 0,
-  "pck_url": "",
-  "notes": "无补丁。发布补丁时把 patch_version 加 1,并把 pck_url 指向 Release 里的 .pck 直链。"
-}
+{ "patch_version": 1, "pck_url": "https://github.com/watttaa/Devil-Kitchen/releases/download/1.0.2/patch.pck" }

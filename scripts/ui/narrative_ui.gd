@@ -37,7 +37,6 @@ var _index: int = 0
 func _ready() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	$Root.gui_input.connect(_on_root_gui_input)
 
 func present(data: NarrativeData) -> void:
 	_lines = data.lines
@@ -90,22 +89,18 @@ func _display_name(id: String) -> String:
 		return str(SaveSystem.get_profile().get("name", "阿澈"))
 	return str(SPEAKER_NAMES.get(id, ""))
 
-## Root 全屏 ColorRect 直接接收点击/触摸翻页(触屏可用)
-func _on_root_gui_input(e: InputEvent) -> void:
+## 全局捕获点击/触摸/F 翻页(用 _input 避免被上层 UI 拦截)
+func _input(e: InputEvent) -> void:
 	if not visible:
 		return
-	if (e is InputEventMouseButton and e.pressed) \
-		or (e is InputEventScreenTouch and e.pressed):
+	var tapped := (e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT) \
+		or (e is InputEventScreenTouch and e.pressed)
+	if tapped or e.is_action_pressed("interact"):
 		_next()
-		$Root.accept_event()
-
-func _unhandled_input(e: InputEvent) -> void:
-	if not visible:
-		return
-	if e.is_action_pressed("interact"):
-		_next()
+		get_viewport().set_input_as_handled()
 	elif e.is_action_pressed("pause"):
 		_close()
+		get_viewport().set_input_as_handled()
 
 func _next() -> void:
 	_index += 1
