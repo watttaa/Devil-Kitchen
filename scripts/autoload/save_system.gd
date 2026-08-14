@@ -173,6 +173,14 @@ func set_key_override(action: String, keycode: int) -> void:
 	get_settings()["keys"][action] = keycode
 	_save()
 
+## 兑换码"我是coco"解锁的召唤小涛帮助按钮
+func is_summon_unlocked() -> bool:
+	return bool(get_settings().get("summon_unlocked", false))
+
+func set_summon_unlocked() -> void:
+	get_settings()["summon_unlocked"] = true
+	_save()
+
 # --- 角色形象 profile ---
 func get_profile() -> Dictionary:
 	if typeof(data.get("profile")) != TYPE_DICTIONARY:

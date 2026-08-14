@@ -34,9 +34,9 @@ func _ready() -> void:
 	GameManager.state = GameManager.State.PLAYING
 	get_tree().paused = false
 	pause_menu.visible = false
-	$DebugBar/Box/KillAll.pressed.connect(_debug_kill_room)
-	$DebugBar/Box/God.pressed.connect(_debug_toggle_god)
-	$DebugBar/Box/Skip.pressed.connect(_debug_skip_floor)
+	var gear := get_node_or_null("DebugBar/GearBtn")
+	if gear:
+		gear.pressed.connect(_open_settings)
 	var resume_btn := pause_menu.get_node_or_null("Panel/Resume")
 	var settings_btn := pause_menu.get_node_or_null("Panel/Settings")
 	var quit_btn := pause_menu.get_node_or_null("Panel/Quit")
@@ -104,33 +104,18 @@ func _process(_d: float) -> void:
 func _unhandled_input(e: InputEvent) -> void:
 	if e.is_action_pressed("pause"):
 		_toggle_pause()
-	elif e is InputEventKey and e.pressed and not e.echo:
-		match e.physical_keycode:
-			KEY_K: _debug_kill_room()
-			KEY_G: _debug_toggle_god()
-			KEY_J: _debug_skip_floor()
 
-# --- 测试工具 ---
+# --- 兑换码工具 ---
 
-func _debug_kill_room() -> void:
+## 召唤小涛帮助:清空当前房间所有敌人(由兑换码解锁的按钮调用)
+func summon_help() -> void:
 	var n := 0
 	for e in get_tree().get_nodes_in_group("enemies"):
 		if is_instance_valid(e) and e.has_node("Health"):
 			e.get_node("Health").take_damage(999999.0)
 			n += 1
 	if _hud:
-		_hud.show_toast("[测试] 清空 %d 只怪" % n, 1.5)
-
-func _debug_toggle_god() -> void:
-	if _player and is_instance_valid(_player):
-		_player.debug_god = not _player.debug_god
-		if _hud:
-			_hud.show_toast("[测试] 无敌:%s" % ("开" if _player.debug_god else "关"), 1.5)
-
-func _debug_skip_floor() -> void:
-	if _hud:
-		_hud.show_toast("[测试] 跳过本层", 1.2)
-	_on_boss_defeated()
+		_hud.show_toast("小涛赶来相助,清空 %d 只怪!" % n, 1.8)
 
 func _toggle_pause() -> void:
 	GameManager.toggle_pause()

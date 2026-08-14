@@ -7,6 +7,9 @@ const OP_TEXT := "WASD移动 / 左键远程 / 右键近战 / 空格冲刺 / E调
 @onready var volume_slider: HSlider = $Panel/Vol/Slider
 @onready var volume_label: Label = $Panel/Vol/Value
 @onready var keys_box: VBoxContainer = $Panel/Keys
+@onready var code_input: LineEdit = $Panel/Code/Input
+@onready var code_submit: Button = $Panel/Code/Submit
+@onready var summon_btn: Button = $Panel/Summon
 
 var _listening_action: String = ""
 var _listening_btn: Button = null
@@ -22,6 +25,31 @@ func _ready() -> void:
 	volume_slider.value_changed.connect(_on_volume)
 	_update_vol_label(volume_slider.value)
 	_build_key_rows()
+	code_submit.pressed.connect(_redeem_code)
+	summon_btn.pressed.connect(_summon)
+	summon_btn.visible = SaveSystem.is_summon_unlocked() and _in_game()
+
+## 兑换码:输入"我是coco"解锁召唤小涛帮助
+func _redeem_code() -> void:
+	var c := code_input.text.strip_edges()
+	if c == "我是coco":
+		SaveSystem.set_summon_unlocked()
+		summon_btn.visible = _in_game()
+		code_input.text = "兑换成功!"
+	else:
+		code_input.text = ""
+		code_input.placeholder_text = "兑换码无效"
+
+func _summon() -> void:
+	var g := get_tree().current_scene
+	if g and g.has_method("summon_help"):
+		g.summon_help()
+		_close()
+
+## 只有在对局场景(存在 summon_help)才显示召唤按钮
+func _in_game() -> bool:
+	var g := get_tree().current_scene
+	return g != null and g.has_method("summon_help")
 
 func _on_volume(v: float) -> void:
 	SaveSystem.set_volume(v)

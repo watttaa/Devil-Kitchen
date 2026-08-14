@@ -53,5 +53,24 @@ text = "按键设置(点击后按新键)"
 [node name="Keys" type="VBoxContainer" parent="Panel"]
 theme_override_constants/separation = 6
 
+[node name="CodeHead" type="Label" parent="Panel"]
+text = "兑换码"
+
+[node name="Code" type="HBoxContainer" parent="Panel"]
+theme_override_constants/separation = 12
+
+[node name="Input" type="LineEdit" parent="Panel/Code"]
+custom_minimum_size = Vector2(300, 0)
+size_flags_horizontal = 3
+placeholder_text = "输入兑换码"
+
+[node name="Submit" type="Button" parent="Panel/Code"]
+custom_minimum_size = Vector2(120, 0)
+text = "兑换"
+
+[node name="Summon" type="Button" parent="Panel"]
+visible = false
+text = "召唤小涛帮助"
+
 [node name="Close" type="Button" parent="Panel"]
 text = "关闭"
