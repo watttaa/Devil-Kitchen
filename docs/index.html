@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>魔鬼餐厅 · 下载</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: radial-gradient(circle at 50% 20%, #241a2e 0%, #14101a 70%);
+    color: #f0e8f2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    max-width: 480px;
+    width: 100%;
+    background: rgba(30, 24, 38, 0.7);
+    border: 1px solid rgba(255, 120, 80, 0.25);
+    border-radius: 18px;
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  h1 { font-size: 2rem; margin-bottom: 8px; letter-spacing: 2px; }
+  .sub { color: #b9a8c4; font-size: 0.95rem; margin-bottom: 28px; }
+  .story {
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #d8c9e0;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+  .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff7a4d, #e0435c);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 999px;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 8px 24px rgba(224, 67, 92, 0.4);
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(224, 67, 92, 0.55); }
+  .note { margin-top: 22px; font-size: 0.8rem; color: #8f8199; line-height: 1.6; }
+  .controls { margin-top: 20px; font-size: 0.82rem; color: #b9a8c4; }
+  a.repo { color: #ff9a6d; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>魔鬼餐厅</h1>
+    <p class="sub">Devil Kitchen · 烹饪主题双摇杆 Roguelike</p>
+    <div class="story">
+      「魔鬼餐厅」,全城差评第一,却夜夜爆满。<br>
+      因为没人能活着走出来打差评。<br>
+      午夜十二点,食材集体觉醒造反——<br>
+      抄起师傅的刀,杀穿三层,把人,给我带回家!
+    </div>
+    <a class="btn" href="https://github.com/watttaa/Devil-Kitchen/releases/download/v1.0.0/DevilKitchen.apk">
+      ⬇ 下载安卓版 APK
+    </a>
+    <div class="controls">
+      触屏:左摇杆移动 · 右摇杆瞄准开火 · 右下按钮冲刺/近战/调料
+    </div>
+    <p class="note">
+      安装提示:下载后需在手机允许「未知来源」安装。<br>
+      这是测试版(Debug 签名),安装时系统可能提示风险,属正常。<br>
+      源码仓库:<a class="repo" href="https://github.com/watttaa/Devil-Kitchen">github.com/watttaa/Devil-Kitchen</a>
+    </p>
+  </div>
+</body>
+</html>
