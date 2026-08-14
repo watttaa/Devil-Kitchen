@@ -204,8 +204,12 @@ func _drop_loot() -> void:
 		return
 	if data.tips_drop > 0:
 		_spawn_pickup(parent, Pickup.Kind.TIPS, data.tips_drop, Vector2(8, 0))
-	if RunContext.rng.randf() < data.ammo_drop_chance:
+	if RunContext.rng.randf() < data.ammo_drop_chance and not _player_has_infinite_ammo():
 		_spawn_pickup(parent, Pickup.Kind.AMMO, data.ammo_amount, Vector2(-8, 8))
+
+func _player_has_infinite_ammo() -> bool:
+	# 远程武器一律无限,恒不掉弹药
+	return true
 
 func _spawn_pickup(parent: Node, kind: int, amount: int, offset: Vector2) -> void:
 	var pk := PICKUP_SCENE.instantiate()

@@ -80,8 +80,9 @@ func _on_weapon(melee_name: String, ranged_name: String) -> void:
 
 func _on_ammo(current: int, _maximum: int) -> void:
 	if _player and _player.melee_weapon and _player.ranged_weapon:
-		weapon_label.text = "近[右键] %s   远[左键] %s  弹%d" % [
-			_player.melee_weapon.display_name, _player.ranged_weapon.display_name, current]
+		# 远程武器一律无限弹药,不显示数量
+		weapon_label.text = "近[右键] %s   远[左键] %s" % [
+			_player.melee_weapon.display_name, _player.ranged_weapon.display_name]
 
 func _refresh_synergy() -> void:
 	if RunContext.active_synergies.is_empty():

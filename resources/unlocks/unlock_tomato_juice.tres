@@ -9,5 +9,5 @@ target_content = "tomato_juice"
 condition = 3
 threshold = 50
 enemy_id = "tomato"
-display_name = "番茄汁喷射"
+display_name = "番茄汁激光"
 hint = "击杀 50 个番茄怪"

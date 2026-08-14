@@ -30,7 +30,7 @@ func _default_data() -> Dictionary:
 
 func _default_profile() -> Dictionary:
 	return {
-		"name": "阿澈",
+		"name": "可可",
 		"body": [0.36, 0.72, 1.0],
 		"hat": [1.0, 1.0, 1.0],
 		"accent": [0.9, 0.3, 0.35],

@@ -15,11 +15,12 @@ func _ready() -> void:
 			health = p.get_node("Health") as Health
 
 ## 由命中方调用
-func hit(amount: float) -> void:
+func hit(amount: float, show_number: bool = true) -> void:
 	if invincible or health == null:
 		return
 	health.take_damage(amount)
-	_popup_number(amount)
+	if show_number:
+		_popup_number(amount)
 
 func _popup_number(amount: float) -> void:
 	var p := get_parent()

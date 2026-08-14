@@ -27,7 +27,7 @@ func _open_settings() -> void:
 
 func _refresh_chef() -> void:
 	_chef.apply(SaveSystem.get_profile())
-	var pname := str(SaveSystem.get_profile().get("name", "阿澈"))
+	var pname := str(SaveSystem.get_profile().get("name", "可可"))
 	$Panel/Greeting.text = "厨师 %s,准备好开工了吗?" % pname
 	$Panel/Story.text = _story_tpl.replace("{name}", pname)
 

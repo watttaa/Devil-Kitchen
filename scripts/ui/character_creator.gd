@@ -28,7 +28,7 @@ func _ready() -> void:
 	_preview.scale = Vector2(3.2, 3.2)
 	_preview_box.add_child(_preview)
 	_preview.apply(_p)
-	_name_edit.text = str(_p.get("name", "阿澈"))
+	_name_edit.text = str(_p.get("name", "可可"))
 	_build_swatches($Panel/V/Main/Controls/BodyRow, BODY_PALETTE, "body")
 	_build_swatches($Panel/V/Main/Controls/HatRow, HAT_PALETTE, "hat")
 	_build_swatches($Panel/V/Main/Controls/AccentRow, ACCENT_PALETTE, "accent")
@@ -69,7 +69,7 @@ func _on_acc(idx: int) -> void:
 
 func _on_save() -> void:
 	var n := _name_edit.text.strip_edges()
-	_p["name"] = n if n != "" else "阿澈"
+	_p["name"] = n if n != "" else "可可"
 	SaveSystem.set_profile(_p)
 	_close()
 

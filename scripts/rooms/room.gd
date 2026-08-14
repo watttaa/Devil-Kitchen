@@ -85,21 +85,20 @@ func _unlock_doors() -> void:
 func _on_body_entered(body: Node) -> void:
 	if state != State.UNENTERED or not body.is_in_group("player"):
 		return
-	_activate()
+	state = State.ACTIVE
+	# 延迟激活:避免在物理查询回调中改 Area 的 monitoring 状态而报错
+	_activate.call_deferred()
 
 func _activate() -> void:
 	match room_type:
 		Type.COMBAT:
 			_lock_doors()
-			state = State.ACTIVE
 			_spawn_enemies()
 		Type.ELITE:
 			_lock_doors()
-			state = State.ACTIVE
 			_spawn_elite()
 		Type.BOSS:
 			_lock_doors()
-			state = State.ACTIVE
 			_spawn_boss()
 		Type.SHOP:
 			_populate_shop()

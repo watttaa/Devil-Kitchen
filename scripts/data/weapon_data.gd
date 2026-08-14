@@ -28,3 +28,7 @@ enum Type { MELEE, RANGED }
 @export var projectile_scale: float = 1.0    # 弹丸尺寸倍率(机关枪小粒子=0.5,大弹=1.5)
 @export var fire_jitter_degrees: float = 0.0 # 每发额外随机偏角(机关枪扫射手感)
 @export var stream: bool = false             # true=持续喷射流(番茄汁射线):每帧连续吐弹
+@export var infinite_ammo: bool = false      # true=无限弹药(不消耗弹匣)
+@export var beam: bool = false                # true=持续激光束(射线持续伤害,不发射弹丸)
+@export var beam_length: float = 700.0        # 激光最大长度
+@export var beam_width: float = 10.0          # 激光视觉宽度

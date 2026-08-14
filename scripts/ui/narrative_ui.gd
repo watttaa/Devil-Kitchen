@@ -91,15 +91,20 @@ func _set_speaker(id: String) -> void:
 
 func _display_name(id: String) -> String:
 	if id == "ache":
-		return str(SaveSystem.get_profile().get("name", "阿澈"))
+		return str(SaveSystem.get_profile().get("name", "可可"))
 	return str(SPEAKER_NAMES.get(id, ""))
 
 ## 全局捕获点击/触摸/F 翻页(用 _input 避免被上层 UI 拦截)
 func _input(e: InputEvent) -> void:
 	if not visible:
 		return
-	var tapped := (e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT) \
-		or (e is InputEventScreenTouch and e.pressed)
+	var tapped: bool = false
+	var mb := e as InputEventMouseButton
+	if mb != null and mb.pressed and mb.button_index == MOUSE_BUTTON_LEFT:
+		tapped = true
+	var st := e as InputEventScreenTouch
+	if st != null and st.pressed:
+		tapped = true
 	if tapped or e.is_action_pressed("interact"):
 		_next()
 		get_viewport().set_input_as_handled()

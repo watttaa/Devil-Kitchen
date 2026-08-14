@@ -24,6 +24,8 @@ var _melee_cd: float = 0.0
 var _melee_active: float = 0.0
 var _melee_targets: Array = []
 var _ranged_cd: float = 0.0
+var _beam_line: Line2D
+var _beam_active: bool = false
 var _dashing: bool = false
 var _dash_timer: float = 0.0
 var _dash_cd: float = 0.0
@@ -62,6 +64,13 @@ func _ready() -> void:
 	set_ranged_weapon(r, r.magazine_size)
 	_last_hp = health.current
 	health.health_changed.connect(_on_health_changed)
+	_beam_line = Line2D.new()
+	_beam_line.width = 10.0
+	_beam_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
+	_beam_line.end_cap_mode = Line2D.LINE_CAP_ROUND
+	_beam_line.z_index = 5
+	_beam_line.visible = false
+	add_child(_beam_line)
 
 func _on_health_changed(current: float, _maximum: float) -> void:
 	if current < _last_hp:
@@ -195,16 +204,56 @@ func _process_melee_hits() -> void:
 				GameManager.hitstop(0.04, 0.05)
 			_melee_targets.append(area)
 
+func _ranged_infinite() -> bool:
+	return ranged_weapon != null and ranged_weapon.type == WeaponData.Type.RANGED
+
 func _try_ranged() -> void:
-	if ranged_weapon == null or _ranged_cd > 0.0:
+	if ranged_weapon == null:
+		return
+	if ranged_weapon.beam:
+		_tick_beam()
+		return
+	if _ranged_cd > 0.0:
 		return
 	if _ranged_input():
-		if ranged_ammo <= 0:
+		if not _ranged_infinite() and ranged_ammo <= 0:
 			return
 		_fire_ranged()
-		ranged_ammo -= 1
+		if not _ranged_infinite():
+			ranged_ammo -= 1
 		_ranged_cd = ranged_weapon.attack_interval / bonus_attack_speed_mult
 		ammo_changed.emit(ranged_ammo, ranged_weapon.magazine_size)
+
+## 激光束:持续射线,命中敌人按 DPS*delta 持续掉血
+func _tick_beam() -> void:
+	var firing := _ranged_input() and (_ranged_infinite() or ranged_ammo > 0)
+	if not firing:
+		if _beam_active:
+			_beam_active = false
+			_beam_line.visible = false
+		return
+	_beam_active = true
+	var aim := get_aim_direction()
+	var muzzle := global_position + aim * 24.0
+	var max_end := muzzle + aim * ranged_weapon.beam_length
+	var space := get_world_2d().direct_space_state
+	var q := PhysicsRayQueryParameters2D.create(muzzle, max_end, PLAYER_PROJECTILE_MASK)
+	q.collide_with_areas = true
+	q.collide_with_bodies = true
+	var hit := space.intersect_ray(q)
+	var end := max_end
+	if hit:
+		end = hit.position
+		var col: Object = hit.collider
+		if col is Hurtbox:
+			var delta := get_physics_process_delta_time()
+			var dps := ranged_weapon.damage * bonus_damage_mult * _temp_buff_mult * RunContext.combo_damage_mult()
+			(col as Hurtbox).hit(dps * delta, false)
+	# 视觉:本地坐标(Line2D 是 player 子节点)
+	_beam_line.width = ranged_weapon.beam_width
+	_beam_line.default_color = ranged_weapon.projectile_color
+	_beam_line.points = PackedVector2Array([to_local(muzzle), to_local(end)])
+	_beam_line.visible = true
 
 func _fire_ranged() -> void:
 	var aim := get_aim_direction()
@@ -252,6 +301,9 @@ func set_ranged_weapon(data: WeaponData, ammo: int) -> WeaponData:
 	var old := ranged_weapon
 	ranged_weapon = data
 	ranged_ammo = ammo
+	if _beam_line and (data == null or not data.beam):
+		_beam_active = false
+		_beam_line.visible = false
 	weapon_changed.emit(_name_of(melee_weapon), _name_of(ranged_weapon))
 	ammo_changed.emit(ranged_ammo, ranged_weapon.magazine_size)
 	return old

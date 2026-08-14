@@ -14,6 +14,9 @@ var _remote_url := ""
 var _remote_ver := 0
 
 func _ready() -> void:
+	# 编辑器内运行不加载补丁(否则旧 PCK 覆盖开发中的新代码)
+	if OS.has_feature("editor"):
+		return
 	# iOS 不允许下载可执行代码,直接跳过
 	if OS.get_name() == "iOS":
 		return
