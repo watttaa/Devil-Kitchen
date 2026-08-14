@@ -13,6 +13,7 @@ var firing: bool = false                  # 右摇杆是否推动 -> 自动开�
 var _dash_pressed: bool = false
 var _melee_pressed: bool = false          # 保持按住状态
 var _melee_held: bool = false
+var _melee_hold_timer: float = 0.0
 var _swap_pressed: bool = false
 var _seasoning_pressed: bool = false
 var _interact_pressed: bool = false
@@ -38,6 +39,11 @@ func set_melee_held(held: bool) -> void:
 	if held:
 		_melee_pressed = true
 
+## 触屏近战:点一下=按住一小段时间,确保 _try_melee 能在冷却窗口内触发
+func tap_melee() -> void:
+	_melee_held = true
+	_melee_hold_timer = 0.15
+
 func press_swap() -> void:
 	_swap_pressed = true
 
@@ -51,8 +57,12 @@ func press_interact() -> void:
 func interact_just_pressed() -> bool:
 	return _interact_pressed
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	_interact_pressed = false
+	if _melee_hold_timer > 0.0:
+		_melee_hold_timer -= delta
+		if _melee_hold_timer <= 0.0:
+			_melee_held = false
 
 # --- player 消费接口 ---
 

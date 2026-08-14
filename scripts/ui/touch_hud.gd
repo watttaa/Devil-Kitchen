@@ -14,8 +14,7 @@ func _ready() -> void:
 		set_process(false)
 		return
 	dash_btn.pressed.connect(TouchInput.press_dash)
-	melee_btn.button_down.connect(func(): TouchInput.set_melee_held(true))
-	melee_btn.button_up.connect(func(): TouchInput.set_melee_held(false))
+	melee_btn.pressed.connect(TouchInput.tap_melee)
 	seasoning_btn.pressed.connect(TouchInput.press_seasoning)
 	interact_btn.pressed.connect(TouchInput.press_interact)
 
