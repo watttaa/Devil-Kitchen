@@ -5,6 +5,7 @@ extends Control
 @onready var dash_btn: Button = $Dash
 @onready var melee_btn: Button = $Melee
 @onready var seasoning_btn: Button = $Seasoning
+@onready var interact_btn: Button = $Interact
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -16,6 +17,7 @@ func _ready() -> void:
 	melee_btn.button_down.connect(func(): TouchInput.set_melee_held(true))
 	melee_btn.button_up.connect(func(): TouchInput.set_melee_held(false))
 	seasoning_btn.pressed.connect(TouchInput.press_seasoning)
+	interact_btn.pressed.connect(TouchInput.press_interact)
 
 func _process(_delta: float) -> void:
 	# 暂停时隐藏,避免摇杆盖住暂停菜单

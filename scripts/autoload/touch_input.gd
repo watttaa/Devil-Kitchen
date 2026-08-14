@@ -15,10 +15,13 @@ var _melee_pressed: bool = false          # 保持按住状态
 var _melee_held: bool = false
 var _swap_pressed: bool = false
 var _seasoning_pressed: bool = false
+var _interact_pressed: bool = false
 
 func _ready() -> void:
 	# 移动端一律启用触屏(不依赖 is_touchscreen_available,部分安卓返回 false)
 	enabled = OS.get_name() in ["Android", "iOS"]
+	# 最后执行,确保本帧所有拾取物读完 interact 后再清除
+	process_priority = 1000
 
 func set_move(v: Vector2) -> void:
 	move_vec = v
@@ -40,6 +43,16 @@ func press_swap() -> void:
 
 func press_seasoning() -> void:
 	_seasoning_pressed = true
+
+func press_interact() -> void:
+	_interact_pressed = true
+
+## interact 用"本帧有效"语义:多个拾取物可同帧读取,帧末统一清除
+func interact_just_pressed() -> bool:
+	return _interact_pressed
+
+func _process(_delta: float) -> void:
+	_interact_pressed = false
 
 # --- player 消费接口 ---
 

@@ -36,7 +36,7 @@ func _on_exit(body: Node) -> void:
 		_player_in = null
 
 func _process(_delta: float) -> void:
-	if _player_in and weapon_data and Input.is_action_just_pressed("interact"):
+	if _player_in and weapon_data and (Input.is_action_just_pressed("interact") or TouchInput.interact_just_pressed()):
 		_swap()
 
 func _swap() -> void:

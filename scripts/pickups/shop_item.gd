@@ -61,7 +61,7 @@ func _on_exit(b: Node) -> void:
 func _process(_d: float) -> void:
 	if _sold or _gamble_open or _player == null:
 		return
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") or TouchInput.interact_just_pressed():
 		_buy()
 
 func _buy() -> void:
