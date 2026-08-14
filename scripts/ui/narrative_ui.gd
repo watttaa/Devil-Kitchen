@@ -37,6 +37,7 @@ var _index: int = 0
 func _ready() -> void:
 	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	$Root.gui_input.connect(_on_root_gui_input)
 
 func present(data: NarrativeData) -> void:
 	_lines = data.lines
@@ -53,7 +54,7 @@ func _show_page() -> void:
 	if _index < _speakers.size() and _speakers[_index] != "":
 		spk = _speakers[_index]
 	_set_speaker(spk)
-	hint_label.text = "点击/按 F 翻页(ESC 跳过)"
+	hint_label.text = "点击屏幕 / 按 F 翻页(ESC 跳过)"
 
 func _set_speaker(id: String) -> void:
 	for c in portrait_host.get_children():
@@ -89,10 +90,19 @@ func _display_name(id: String) -> String:
 		return str(SaveSystem.get_profile().get("name", "阿澈"))
 	return str(SPEAKER_NAMES.get(id, ""))
 
+## Root 全屏 ColorRect 直接接收点击/触摸翻页(触屏可用)
+func _on_root_gui_input(e: InputEvent) -> void:
+	if not visible:
+		return
+	if (e is InputEventMouseButton and e.pressed) \
+		or (e is InputEventScreenTouch and e.pressed):
+		_next()
+		$Root.accept_event()
+
 func _unhandled_input(e: InputEvent) -> void:
 	if not visible:
 		return
-	if e.is_action_pressed("interact") or (e is InputEventMouseButton and e.pressed):
+	if e.is_action_pressed("interact"):
 		_next()
 	elif e.is_action_pressed("pause"):
 		_close()

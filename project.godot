@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+PatchLoader="*res://scripts/autoload/patch_loader.gd"
 InputSetup="*res://scripts/autoload/input_setup.gd"
 ProjectilePool="*res://scripts/autoload/projectile_pool.gd"
 GameManager="*res://scripts/autoload/game_manager.gd"
